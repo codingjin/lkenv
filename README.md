@@ -93,6 +93,10 @@ ifconfig -a
 
 (in-guest) ping -c2 www.google.com
 
+(Configure ssh server. Edit /etc/ssh/sshd_config 's PermitRootLogin yes; service sshd restart )
+
+(From host machine, ssh root@localhost -p 5556. Now you should ssh-connect to the vm )
+
 
 
 
