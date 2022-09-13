@@ -70,7 +70,7 @@ sudo apt update -y; sudo apt upgrade -y; sudo apt install -y wget unzip git
 
 sudo apt update -y; sudo apt upgrade -y
 
-sudo apt install -y curl tar gcc make time flex bison python-dev libelf-dev libaudit-dev libslang2-dev libperl-dev binutils-dev liblzma-dev libnuma-dev vim screen usbutils build-essential cmake libssl-dev openssh-server numactl network-manager net-tools ifupdown
+sudo apt install -y curl tar gcc make time flex bison python-dev libelf-dev libaudit-dev libslang2-dev libperl-dev binutils-dev liblzma-dev libnuma-dev vim screen usbutils build-essential cmake libssl-dev openssh-server numactl network-manager net-tools ifupdown htop
 
 
 # 5 Run the VM
