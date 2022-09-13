@@ -64,11 +64,11 @@ sudo chroot .
 
 passwd
 
-sudo apt update; sudo apt upgrade; sudo apt install -y wget unzip git
+sudo apt update -y; sudo apt upgrade -y; sudo apt install -y wget unzip git
 
 (Get the Ubuntu 20 source list, https://gist.github.com/ishad0w/788555191c7037e249a439542c53e170, and write it into /etc/apt/sources.list)
 
-sudo apt update; sudo apt upgrade
+sudo apt update -y; sudo apt upgrade -y
 
 sudo apt install -y curl tar gcc make time flex bison python-dev libelf-dev libaudit-dev libslang2-dev libperl-dev binutils-dev liblzma-dev libnuma-dev vim screen usbutils build-essential cmake libssl-dev openssh-server numactl network-manager net-tools ifupdown
 
