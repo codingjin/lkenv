@@ -32,6 +32,7 @@ Location: Device Drivers -> Network device support ->Ethernet driver support -> 
 
 Set all the options under Intel devices into “y/*”
 
+![image](https://user-images.githubusercontent.com/55301130/189800700-656a4597-18ad-4384-8009-d10010caaf8f.png)
 
 
 
