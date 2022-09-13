@@ -64,7 +64,7 @@ sudo chroot .
 
 passwd
 
-sudo apt update; sudo apt upgrade; sudo apt install wget unzip
+sudo apt update; sudo apt upgrade; sudo apt install -y wget unzip
 
 (Get the Ubuntu 20 source list, https://gist.github.com/ishad0w/788555191c7037e249a439542c53e170, and write it into /etc/apt/sources.list)
 
