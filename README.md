@@ -26,14 +26,27 @@ make kvm_guest.config
 
 make menuconfig 
 
-(config the E1000)
+  (config the E1000)
 
-Location: Device Drivers -> Network device support ->Ethernet driver support -> Intel devices
+  Location: Device Drivers -> Network device support ->Ethernet driver support -> Intel devices
 
-Set all the options under Intel devices into “y/*”
+  Set all the options under Intel devices into “y/*”
 
 ![image](https://user-images.githubusercontent.com/55301130/189800700-656a4597-18ad-4384-8009-d10010caaf8f.png)
 
+  (config virtio_balloon)
+  
+  Main menu -> Device Drivers -> Virtio drivers (Virtio balloon driver [=y] )
+  
+ (compile)
+ 
+ make -j$(nproc)
 
+(copy the bzImage out)
+
+cp arch/x86/boot/bzImage ../
+
+
+  
 
 
