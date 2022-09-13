@@ -46,6 +46,34 @@ make menuconfig
 
 cp arch/x86/boot/bzImage ../
 
+# 4 Create the QEMU image
+
+qemu-img create qemuimg1 32g
+
+mkfs.ext4 qemuimg1 
+
+mkdir mountdir1
+
+sudo debootstrap --arch amd64 focal mountdir1
+
+cd mountdir1
+
+sudo chroot .
+
+passwd
+
+sudo apt update; sudo apt upgrade; sudo apt install wget unzip
+
+(Get the Ubuntu 20 source list, https://gist.github.com/ishad0w/788555191c7037e249a439542c53e170, and write it into /etc/apt/sources.list)
+
+sudo apt update; sudo apt upgrade
+
+sudo apt install -y curl tar gcc make time flex bison python-dev libelf-dev libaudit-dev libslang2-dev libperl-dev binutils-dev liblzma-dev libnuma-dev git vim screen usbutils build-essential cmake libssl-dev openssh-server numactl network-manager net-tools ifupdown
+
+
+
+
+
 
   
 
