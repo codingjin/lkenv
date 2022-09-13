@@ -6,7 +6,7 @@ sudo apt update
 
 sudo apt upgrade
 
-sudo apt install -y build-essential cmake libssl-dev bison flex qemu qemu-utils debootstrap
+sudo apt install -y build-essential cmake libssl-dev bison flex qemu qemu-utils qemu-system-x86 debootstrap
 
 sudo apt update
 
