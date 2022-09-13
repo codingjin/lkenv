@@ -54,6 +54,8 @@ mkfs.ext4 qemuimg1
 
 mkdir mountdir1
 
+sudo mount qemuimg1 mountdir1
+
 sudo debootstrap --arch amd64 focal mountdir1
 
 cd mountdir1
