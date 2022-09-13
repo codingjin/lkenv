@@ -71,6 +71,28 @@ sudo apt update; sudo apt upgrade
 sudo apt install -y curl tar gcc make time flex bison python-dev libelf-dev libaudit-dev libslang2-dev libperl-dev binutils-dev liblzma-dev libnuma-dev git vim screen usbutils build-essential cmake libssl-dev openssh-server numactl network-manager net-tools ifupdown
 
 
+# 5 Run the VM
+
+sudo qemu-system-x86_64 -kernel bzImage -nographic -drive format=raw,file=qemuimg1 -append "root=/dev/sda rw console=ttyS0" \
+-m 100G -cpu host -enable-kvm -smp 32 -machine ubuntu,accel=kvm \
+-device e1000,netdev=net0 -netdev user,id=net0,hostfwd=tcp::5556-:22
+
+(Configure sshd)
+
+vi /etc/ssh/sshd_config, to set [PermitRootLogin yes]
+
+(Configure Internet)
+
+ifconfig -a
+
+![image](https://user-images.githubusercontent.com/55301130/189829330-cd290a07-aee2-46aa-bff0-ebca699e5f02.png)
+
+(in-guest) echo "iface enp0s3 inet dhcp" >> /etc/network/interfaces
+
+(in-guest, add this into ~/.bashrc) ifup enp0s3     
+
+(in-guest) ping -c2 www.google.com
+
 
 
 
