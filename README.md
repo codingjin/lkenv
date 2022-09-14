@@ -81,7 +81,8 @@ sudo qemu-system-x86_64 -kernel bzImage -nographic -drive format=raw,file=qemuim
 
 (Configure sshd)
 
-vi /etc/ssh/sshd_config, to set [PermitRootLogin yes]
+vi /etc/ssh/sshd_config, to set [PermitRootLogin yes] \
+sudo systemctl restart ssh
 
 (Configure Internet)
 
