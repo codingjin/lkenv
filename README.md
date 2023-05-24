@@ -114,6 +114,31 @@ sudo dhclient
 
 Then we could access the Internet in side the VM.
 
+## Improvement
+For convinience, we add this as a startup service.
+
+Like, write dhclient command into a file, /root/startup.sh
+
+vi /lib/systemd/system/startup.service
+
+[Unit]
+
+Description=Startup Script
+
+[Service]
+
+ExecStart=/root/startup.sh
+
+[Install]
+
+WantedBy=multi-user.target
+
+systemctl enable startup.service --now
+
+Then we could access the Internet in side the VM.
+
+
+
 below function to config network interface is outdated, because no /etc/network in Ubuntu 20 or later version.
 ------------------------------
 ifconfig -a
