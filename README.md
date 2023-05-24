@@ -182,6 +182,10 @@ Type=idle
 
 replace USERNAME with the username you want, like root
 
+# 8 Set timezone
+timedatectl set-timezone America/Los_Angeles
+
+
 
 
 
