@@ -119,6 +119,8 @@ For convinience, we add this as a startup service.
 
 Like, write dhclient command into a file, /root/startup.sh
 
+----------------------------------------------------------------
+
 vi /lib/systemd/system/startup.service
 
 [Unit]
@@ -132,6 +134,8 @@ ExecStart=/root/startup.sh
 [Install]
 
 WantedBy=multi-user.target
+
+----------------------------------------------------------------
 
 systemctl enable startup.service --now
 
