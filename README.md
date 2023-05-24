@@ -86,10 +86,36 @@ sudo qemu-system-x86_64 -kernel bzImage -nographic -drive format=raw,file=qemuim
 (Configure sshd)
 
 vi /etc/ssh/sshd_config, to set [PermitRootLogin yes] \
+
+add publickey of host in ~/.ssh/authorized_keys
+
 sudo systemctl restart ssh
 
 (Configure Internet)
 
+
+# 6 config the network interface
+
+Step 1:
+
+Before compile the kernel, ‘make menuconfig’ to config the E1000 
+
+Location: Device Drivers -> Network device support ->Ethernet driver support -> Intel devices
+
+Set all the options under Intel devices into “y/*”
+
+Step 2:
+
+In VM, ifconfig -a, we found the network interface does not have IP.
+
+run this cmd:
+
+sudo dhclient
+
+Then we could access the Internet in side the VM.
+
+below function to config network interface is outdated, because no /etc/network in Ubuntu 20 or later version.
+------------------------------
 ifconfig -a
 
 ![image](https://user-images.githubusercontent.com/55301130/189829330-cd290a07-aee2-46aa-bff0-ebca699e5f02.png)
@@ -104,6 +130,28 @@ ifconfig -a
 
 (From host machine, ssh root@localhost -p 5556. Now you should ssh-connect to the vm )
 
+# 7 Auto login in guest OS
+
+## Step 1
+
+sudo vi /etc/systemd/logind.conf
+
+Look for NAutoVTs,set it to 6
+
+set NAutoVTs=6 # meaning the first 6 TTYs will autologin, we can just use 6, or moe, doesn’t matter to us actually, and usually, we also set the ReserveVT to be the value of NAutoVTs + 1
+
+## Step 2
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+
+sudo vi /etc/systemd/system/getty@tty1.service.d/override.conf
+
+[Service] ExecStart= 
+
+ExecStart=-/sbin/agetty --noissue --autologin USERNAME %I $TERM 
+
+Type=idle
+
+replace USERNAME with the username you want, like root
 
 
 
